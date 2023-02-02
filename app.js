@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const header1 = React.createElement(
   "h1",
   {
@@ -8,6 +11,13 @@ const header1 = React.createElement(
 
 const header2 = React.createElement(
   "h2",
+  {
+    id: "title2",
+  },
+  "Heading 2"
+);
+const header3 = React.createElement(
+  "h3",
   {
     id: "title2",
   },
