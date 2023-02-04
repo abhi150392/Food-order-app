@@ -2,28 +2,42 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 //React Element
-const Title = <h1>Title</h1>;
+const title = <h1>Food Villa</h1>;
 
 //Functional Component
-const Logo = () => {
+const Header = () => {
   return (
-    <div>
-      <img
-        src="https://marketplace.canva.com/EAFMNm9ybqQ/1/0/1600w/canva-gold-luxury-initial-circle-logo-qRQJCijq_Jw.jpg"
-        height="75px"
-      />
+    <div className="nav-bar">
+      <a href="/">
+        <img src="https://static.vecteezy.com/system/resources/thumbnails/017/485/019/small/a-man-is-riding-a-scooter-delivery-logo-template-vector.jpg" />
+      </a>
+
+      <ul className="nav-item">
+        <li className="nav-items">Home</li>
+        <li className="nav-items">About</li>
+        <li className="nav-items">Contact</li>
+        <li className="nav-items">Cart</li>
+      </ul>
     </div>
   );
 };
 
-const HeaderComponent = () => {
-  return (
-    <div className="header">
-      <Logo />
-      <input type="text" placeholder="Search.." />
-    </div>
-  );
+const Body = () => {
+  return <h1>Body</h1>;
 };
 
+const Footer = () => {
+  return <h1>Footer</h1>;
+};
+
+const AppLayout = () => {
+  return (
+    <>
+      <Header />
+      <Body />
+      <Footer />
+    </>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<HeaderComponent />);
+root.render(<AppLayout />);
