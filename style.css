@@ -21,3 +21,19 @@ img {
   font-size: 1.15rem;
   display: flex;
 }
+
+.card {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+}
+
+.card > img {
+  width: 100%;
+}
+
+.restraunt-list {
+  display: flex;
+  flex-wrap: wrap;
+}
