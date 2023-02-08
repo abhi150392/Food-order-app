@@ -37,3 +37,19 @@ img {
   display: flex;
   flex-wrap: wrap;
 }
+
+.search-input {
+  font-size: 1.15rem;
+  line-height: 24px;
+  /* width: 100%; */
+  margin: 10px;
+  height: 100%;
+  outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  color: inherit;
+  background: inherit;
+  vertical-align: middle;
+  font-weight: 500;
+}
