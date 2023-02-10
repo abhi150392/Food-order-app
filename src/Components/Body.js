@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { restrauntList } from "../constants";
 import RestrauntCard from "./RestrauntCard";
-import Shimmer from "./Shimmer";
+import { Shimmer, Image } from "react-shimmer";
 
-const filteredData = (searchText, restaurants) => {
-  return restaurants.filter((restaurant) =>
-    restaurant.data.name.toLowerCase().includes(searchText)
+const filteredData = (searchText, allrestaurants) => {
+  return allrestaurants.filter((restaurant) =>
+    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
   );
 };
 
@@ -14,7 +14,8 @@ const Body = () => {
   const searchTxt = "DOSA";
   */
   //React Variable or state Variable
-  const [restaurants, setRestaurants] = useState([]);
+  const [allrestaurants, setAllRestaurants] = useState([]);
+  const [filteredrestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
@@ -28,10 +29,14 @@ const Body = () => {
     );
     const json = await api_URL.json();
     console.log(json);
-    setRestaurants(json.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(json.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
   }
   console.log("render");
-  return !restaurants.length ? (
+
+  //early rendering
+
+  return !allrestaurants.length ? (
     <Shimmer />
   ) : (
     <>
@@ -49,15 +54,15 @@ const Body = () => {
         <button
           className="search-btn"
           onClick={() => {
-            const data = filteredData(searchText, restaurants);
-            setRestaurants(data);
+            const data = filteredData(searchText, allrestaurants);
+            setFilteredRestaurants(data);
           }}
         >
           Search
         </button>
       </div>
       <div className="restraunt-list">
-        {restaurants.map((restraunt) => {
+        {filteredrestaurants.map((restraunt) => {
           return <RestrauntCard {...restraunt.data} key={restraunt.data.id} />;
         })}
       </div>
