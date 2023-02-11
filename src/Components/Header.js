@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoggedInUser = () => {
   //API call to check authentication
@@ -16,15 +17,26 @@ const Title = () => {
 const Header = () => {
   const [isLogedIn, setIsLogedIn] = useState(true);
 
+  useEffect(() => {
+    console.log("useEfeect called");
+  });
+  console.log("render");
+
   return (
     <>
       <div className="nav-bar">
         <Title />
         <div>
           <ul className="nav-item">
-            <li className="nav-items">Home</li>
-            <li className="nav-items">About</li>
-            <li className="nav-items">Contact</li>
+            <li className="nav-items">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="nav-items">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="nav-items">
+              <Link to="/contact">Contact</Link>
+            </li>
             <li className="nav-items">Cart</li>
           </ul>
         </div>

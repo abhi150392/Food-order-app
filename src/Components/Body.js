@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { restrauntList } from "../constants";
 import RestrauntCard from "./RestrauntCard";
-import { Shimmer, Image } from "react-shimmer";
+import Shimmer from "./Shimmer";
 
 const filteredData = (searchText, allrestaurants) => {
   return allrestaurants.filter((restaurant) =>
@@ -35,6 +35,9 @@ const Body = () => {
   console.log("render");
 
   //early rendering
+  if (!allrestaurants) {
+    return null;
+  }
 
   return !allrestaurants.length ? (
     <Shimmer />
@@ -62,9 +65,15 @@ const Body = () => {
         </button>
       </div>
       <div className="restraunt-list">
-        {filteredrestaurants.map((restraunt) => {
-          return <RestrauntCard {...restraunt.data} key={restraunt.data.id} />;
-        })}
+        {filteredrestaurants.length === 0 ? (
+          <h1>No restraunt found with the Name!!!!!!</h1>
+        ) : (
+          filteredrestaurants.map((restraunt) => {
+            return (
+              <RestrauntCard {...restraunt.data} key={restraunt.data.id} />
+            );
+          })
+        )}
       </div>
     </>
   );

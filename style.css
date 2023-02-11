@@ -53,3 +53,15 @@ img {
   vertical-align: middle;
   font-weight: 500;
 }
+
+.restarant-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-card {
+  width: 200px;
+  height: 200px;
+  padding: 10px;
+  background: lightgrey;
+  margin: 10px;
+}
