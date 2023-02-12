@@ -2,7 +2,7 @@ import React from "react";
 
 const Shimmer = () => {
   return (
-    <div className="restarant-card">
+    <div className="shimmer-container">
       {Array(10)
         .fill("")
         .map((item, idx) => {

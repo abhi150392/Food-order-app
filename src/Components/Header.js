@@ -24,39 +24,45 @@ const Header = () => {
 
   return (
     <>
-      <div className="nav-bar">
+      <div className="header">
         <Title />
-        <div>
-          <ul className="nav-item">
-            <li className="nav-items">
+        <div className="nav-items">
+          <ul>
+            <li>
               <Link to="/">Home</Link>
             </li>
-            <li className="nav-items">
+            <li>
               <Link to="/about">About</Link>
             </li>
-            <li className="nav-items">
+            <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li className="nav-items">Cart</li>
+            <li>
+              <i className="fa-solid fa-cart-shopping"></i>
+            </li>
+            <li>
+              {isLogedIn ? (
+                <button
+                  className="login-btn"
+                  onClick={() => {
+                    setIsLogedIn(false);
+                  }}
+                >
+                  LogIn
+                </button>
+              ) : (
+                <button
+                  className="logout-btn"
+                  onClick={() => {
+                    setIsLogedIn(true);
+                  }}
+                >
+                  LogOut
+                </button>
+              )}
+            </li>
           </ul>
         </div>
-        {isLogedIn ? (
-          <button
-            onClick={() => {
-              setIsLogedIn(false);
-            }}
-          >
-            LogIn
-          </button>
-        ) : (
-          <button
-            onClick={() => {
-              setIsLogedIn(true);
-            }}
-          >
-            LogOut
-          </button>
-        )}
       </div>
     </>
   );
