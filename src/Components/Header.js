@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoggedInUser = () => {
   //API call to check authentication
-  return true;
+  return false;
 };
 
 const Title = () => {
@@ -16,6 +16,7 @@ const Title = () => {
 
 const Header = () => {
   const [isLogedIn, setIsLogedIn] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log("useEfeect called");
@@ -45,7 +46,7 @@ const Header = () => {
                 <button
                   className="login-btn"
                   onClick={() => {
-                    setIsLogedIn(false);
+                    navigate("/login");
                   }}
                 >
                   LogIn
