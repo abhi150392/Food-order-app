@@ -15,7 +15,7 @@ a {
 
 /* create global variable with :root selector Start*/
 :root {
-  --header-bg-color: rgba(1, 163, 1, 0.173);
+  --header-bg-color: #fff;
   --footer-bg-color: rgb(1, 163, 144);
   --body-bg-color: #e3e3e3;
   --input-bg: #f2f2f2;
@@ -140,6 +140,11 @@ img {
 .restraunt-list {
   display: flex;
   flex-wrap: wrap;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
 }
 
 .search-container {
@@ -201,6 +206,160 @@ img {
 .about-container {
   margin: 100px 0 auto;
   height: 72vh;
+  text-align: center;
+}
+
+.profile-btn {
+  background-color: var(--light-green);
+  color: var(--light-white-text);
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: large;
+  font-weight: 700;
+}
+
+.profile-btn:hover {
+  background-color: var(--orange);
+}
+
+.container {
+  display: flex;
+}
+
+.profile-main-container {
+  display: flex;
+}
+
+.profile-inner-container {
+  background: #fff;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 20px 10px;
+  overflow: hidden;
+  box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 71%);
+}
+.profile-skills-container {
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 20px 10px;
+  overflow: hidden;
+  box-shadow: 6px 6px 10px -1px #000000b5;
+}
+
+.title {
+  text-align: center;
+  color: var(--light-orange);
+  justify-content: center;
+  font-size: 28px;
+  line-height: 1.1;
+  overflow-y: hidden;
+}
+.card {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  display: flex;
+}
+p {
+  text-align: center;
+  color: #575757;
+  margin-top: 0;
+  margin-bottom: 1em;
+  padding-top: 20px;
+  font-size: 16px;
+}
+.profile-img {
+  width: 150px;
+  height: 150px;
+  vertical-align: middle;
+  cursor: pointer;
+  border-style: none;
+  border-radius: 50%;
+}
+
+.profile-img:hover {
+  transform: scale(1.03);
+}
+
+.social-media-container {
+  text-align: center;
+  width: 100%;
+  font-size: 2em;
+  overflow-y: hidden;
+}
+
+.btn-icons {
+  width: inherit;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.btn-icons i {
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.4rem;
+  height: 2.6rem;
+  width: 2.6rem;
+  line-height: 3rem;
+  text-align: center;
+  user-select: none;
+  margin: 0 5px 10px;
+  overflow-y: hidden;
+}
+.btn-icons i:hover {
+  transform: scale(1.02);
+}
+.linkedin i {
+  background-color: #0a66c2;
+}
+
+.github i {
+  background-color: #333;
+}
+
+.email i {
+  background-color: #ea4335;
+}
+
+.work-exp-container {
+  display: flex;
+  flex-direction: column;
+}
+.work-exp {
+  box-shadow: -5px 5px 10px #f8f8f8, 5px -5px 10px #ebebeb;
+  padding: 10px;
+  margin: 2em auto;
+}
+.work-exp-container h3 {
+  height: 77px;
+  background: #fafafa;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 50px 0;
+  display: flex;
+  box-shadow: 6px 6px 10px -1px rgb(0 0 0 / 71%);
+}
+
+.work-exp-container h3:hover {
+  color: var(--dark-orange);
+}
+.repo-title {
+  font-size: 28px;
+  line-height: 1.1;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-color);
+  overflow-y: hidden;
+  margin-bottom: 20px;
 }
 
 /* Contact us page css */

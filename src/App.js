@@ -8,6 +8,7 @@ import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import Login from "./Components/Login";
 import RestrauntMenu from "./Components/RestrauntMenu";
+import ProfileClass from "./Components/ProfileClass";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const AppLayout = () => {
@@ -35,6 +36,13 @@ const appRouter = createBrowserRouter([
         path: "/about",
         element: <About />,
         errorElement: <Error />,
+        children: [
+          //Nested Routing
+          {
+            path: "profileInfo",
+            element: <ProfileClass />,
+          },
+        ],
       },
       {
         path: "/contact",
