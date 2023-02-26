@@ -9,7 +9,10 @@ const LoggedInUser = () => {
 const Title = () => {
   return (
     <a href="/">
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/017/485/019/small/a-man-is-riding-a-scooter-delivery-logo-template-vector.jpg" />
+      <img
+        className="logo"
+        src="https://static.vecteezy.com/system/resources/thumbnails/017/485/019/small/a-man-is-riding-a-scooter-delivery-logo-template-vector.jpg"
+      />
     </a>
   );
 };

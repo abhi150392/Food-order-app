@@ -3,12 +3,7 @@ import { Link } from "react-router-dom";
 import { restrauntList } from "../constants";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
-
-const filteredData = (searchText, allrestaurants) => {
-  return allrestaurants.filter((restaurant) =>
-    restaurant.data.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-};
+import { filteredData } from "../Utils/helper";
 
 const Body = () => {
   /* Local variable
@@ -18,6 +13,7 @@ const Body = () => {
   const [allrestaurants, setAllRestaurants] = useState([]);
   const [filteredrestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [resData, setResData] = useState([]);
 
   useEffect(() => {
     // console.log("useState Called");
