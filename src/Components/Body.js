@@ -4,6 +4,7 @@ import { restrauntList } from "../constants";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { filteredData } from "../Utils/helper";
+import useOnline from "../Utils/useOnline";
 
 const Body = () => {
   /* Local variable
@@ -13,7 +14,6 @@ const Body = () => {
   const [allrestaurants, setAllRestaurants] = useState([]);
   const [filteredrestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [resData, setResData] = useState([]);
 
   useEffect(() => {
     // console.log("useState Called");
@@ -30,6 +30,16 @@ const Body = () => {
     setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
   }
   console.log("render");
+
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return (
+      <div>
+        <h1>🚫 Offline, No Internet Connection!!!</h1>;
+      </div>
+    );
+  }
 
   //early rendering
   if (!allrestaurants) {

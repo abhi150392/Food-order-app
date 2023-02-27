@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useOnline from "../Utils/useOnline";
 
-const LoggedInUser = () => {
-  //API call to check authentication
-  return false;
-};
+// const LoggedInUser = () => {
+//   //API call to check authentication
+//   return false;
+// };
 
 const Title = () => {
   return (
@@ -20,6 +21,8 @@ const Title = () => {
 const Header = () => {
   const [isLogedIn, setIsLogedIn] = useState(true);
   const navigate = useNavigate();
+
+  const isOnline = useOnline();
 
   useEffect(() => {
     console.log("useEfeect called");
@@ -40,6 +43,9 @@ const Header = () => {
             </li>
             <li>
               <Link to="/contact">Contact</Link>
+            </li>
+            <li>
+              <Link to="/instamart">Instamart</Link>
             </li>
             <li>
               <i className="fa-solid fa-cart-shopping"></i>
@@ -65,6 +71,7 @@ const Header = () => {
                 </button>
               )}
             </li>
+            <h1>{isOnline ? "✅ " : "🔴"}</h1>
           </ul>
         </div>
       </div>

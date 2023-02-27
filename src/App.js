@@ -1,15 +1,21 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
 import Footer from "./Components/Footer";
-import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Error from "./Components/Error";
 import Login from "./Components/Login";
 import RestrauntMenu from "./Components/RestrauntMenu";
 import ProfileClass from "./Components/ProfileClass";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { Shimmer } from "react-shimmer";
+/* import Instamart from "./Components/Instamart";
+import About from "./Components/About"; 
+*/
+
+const Instamart = lazy(() => import("./Components/Instamart"));
+const About = lazy(() => import("./Components/About"));
 
 const AppLayout = () => {
   return (
@@ -34,7 +40,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense>
+            <About fallback={<h1>Loading....</h1>} />
+          </Suspense>
+        ),
         errorElement: <Error />,
         children: [
           //Nested Routing
@@ -52,6 +62,15 @@ const appRouter = createBrowserRouter([
       {
         path: "/restraunt/:id",
         element: <RestrauntMenu />,
+      },
+      {
+        path: "/instamart",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <Instamart />
+          </Suspense>
+        ),
+        errorElement: <Error />,
       },
     ],
   },
