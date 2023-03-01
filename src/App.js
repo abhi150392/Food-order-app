@@ -10,11 +10,11 @@ import RestrauntMenu from "./Components/RestrauntMenu";
 import ProfileClass from "./Components/ProfileClass";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Shimmer } from "react-shimmer";
-/* import Instamart from "./Components/Instamart";
-import About from "./Components/About"; 
-*/
+import Instamart from "./Components/Instamart";
+/*import About from "./Components/About";
+ */
 
-const Instamart = lazy(() => import("./Components/Instamart"));
+// const Instamart = lazy(() => import("./Components/Instamart"));
 const About = lazy(() => import("./Components/About"));
 
 const AppLayout = () => {
@@ -65,11 +65,12 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/instamart",
-        element: (
+        element: <Instamart />,
+        /* element: (
           <Suspense fallback={<Shimmer />}>
             <Instamart />
           </Suspense>
-        ),
+        ), */
         errorElement: <Error />,
       },
     ],

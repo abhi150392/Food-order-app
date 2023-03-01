@@ -22,7 +22,7 @@ class ProfileUser extends React.Component {
     return (
       <div className="profile-card">
         <img className="profile-img" src={this.props.data.avatar_url} />
-        <p>
+        <p className="para">
           React.js Developer l JavaScript l HTML5 | CSS3 l Tailwind CSS | SASS |
           Front End Developer
         </p>
