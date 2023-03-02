@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useOnline from "../Utils/useOnline";
+import UserContext from "../Utils/UserContext";
 
 // const LoggedInUser = () => {
 //   //API call to check authentication
@@ -29,6 +30,8 @@ const Header = () => {
   });
   console.log("render");
 
+  const { user } = useContext(UserContext);
+
   return (
     <>
       <div className="header">
@@ -50,6 +53,7 @@ const Header = () => {
             <li>
               <i className="fa-solid fa-cart-shopping"></i>
             </li>
+            <span className="p-2 m-2 text-orange-500">{user.name}</span>
             <li>
               {isLogedIn ? (
                 <button
@@ -71,6 +75,7 @@ const Header = () => {
                 </button>
               )}
             </li>
+
             <h1>{isOnline ? "✅ " : "🔴"}</h1>
           </ul>
         </div>

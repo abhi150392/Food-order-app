@@ -102,7 +102,7 @@ const Instamart = () => {
             showContact: false,
             showProduct: true,
           }); */
-          setIsVisibleSection("Product");
+          setIsVisibleSection("Product ");
         }}
       />
       ;

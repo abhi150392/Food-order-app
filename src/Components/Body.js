@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { restrauntList } from "../constants";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 import { filteredData } from "../Utils/helper";
 import useOnline from "../Utils/useOnline";
+import UserContext from "../Utils/UserContext";
 
 const Body = () => {
   /* Local variable
@@ -14,6 +15,7 @@ const Body = () => {
   const [allrestaurants, setAllRestaurants] = useState([]);
   const [filteredrestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     // console.log("useState Called");
@@ -70,6 +72,15 @@ const Body = () => {
         >
           Search
         </button>
+        <input
+          className="p-2 m-2 border-2"
+          value={user.name}
+          onChange={(e) => {
+            setUser({
+              name: e.target.value,
+            });
+          }}
+        ></input>
       </div>
       <div className="restraunt-list">
         {filteredrestaurants.length === 0 ? (

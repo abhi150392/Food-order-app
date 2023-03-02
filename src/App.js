@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -11,6 +11,7 @@ import ProfileClass from "./Components/ProfileClass";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { Shimmer } from "react-shimmer";
 import Instamart from "./Components/Instamart";
+import UserContext from "./Utils/UserContext";
 /*import About from "./Components/About";
  */
 
@@ -18,12 +19,29 @@ import Instamart from "./Components/Instamart";
 const About = lazy(() => import("./Components/About"));
 
 const AppLayout = () => {
+  //get data from API for user Authentication and display
+  const [user, setUser] = useState({
+    name: "Abhishek Vijayakumar",
+  });
+
+  // useEffect(); --APi and setting username to display
+
   return (
-    <>
+    <UserContext.Provider value={{ user: user, setUser: setUser }}>
       <Header />
       <Outlet />
       <Footer />
-    </>
+    </UserContext.Provider>
+    //We can use useContext anywhere we require in the APP
+    /*  {
+      /* <>
+      <Header />
+      <UserContext.Provider value={{ user: user }}>
+        <Outlet />
+        <Footer />
+      </UserContext.Provider>
+    </> /
+    } */
   );
 };
 
